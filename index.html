@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corbin Visuals</title>
+
+  <link type="image/x-icon" href="img/cv_logo.png" rel="icon">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- <meta http-equiv="refresh" content="2"> -->
+
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="corbin.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="fade-in">
+    <h1 class="name">Corbin Visuals</h1>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <h2>Capturing Moments That Matter</h2>
+    <p>Professional Photographer</p>
+    <p>Let's create something beautiful together</p>
+    <a href="https://wa.me/2349010790789" class="book_me button">Book Now</a>
+  </section>
+
+  <section class="social fade-in">
+    <p>Follow Me</p>
+    <a href=""><i class="fab fa-instagram s_icon"></i></a>
+
+    <a href=""><i class="fab fa-tiktok s_icon"></i></a>
+
+    <a href=""><i class="fa-brands fa-x-twitter s_icon"></i></a>
+
+    <a href=""><i class="fab fa-facebook s_icon"></i></a>
+  </section>
+  <!-- <input type="color"> -->
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery fade-in">
+
+    <div id="imageModal" class="modal">
+      <img id="modalImage" class="modal-content">
+    </div>
+
+    <img class="thumb" src="gallery/shoot (1).jpeg" alt="">
+    
+    <img class="thumb" src="gallery/shoot (10).jpeg" alt="">
+
+    <img class="thumb" src="gallery/shoot (3).jpeg" alt="">
+    
+    <img class="thumb" src="gallery/shoot (12).jpeg" alt="">
+
+    <img class="thumb" src="gallery/shoot (13).jpeg" alt="">
+
+    
+    <!-- hidden images -->
+    
+    <div class="gallery more-images" id="moreImages">
+      
+      <img class="thumb" src="gallery/shoot (14).jpeg" alt="">
+      <img src="gallery/shoot (15).jpeg" class="thumb">
+      <img src="gallery/shoot (5).jpeg" class="thumb">
+      <img src="gallery/shoot (4).jpeg" class="thumb">
+      <img src="gallery/shoot (11).jpeg" class="thumb">
+      <img src="gallery/shoot (2).jpeg" class="thumb">
+
+    </div>
+
+  </section>
+
+  <p id="seeMoreBtn" class="see-more">See more</p>
+
+  <!-- ABOUT -->
+  <section id="about" class="about fade-in">
+    <img class="cv_logo" src="img/cv.jpeg" alt="cv_logo">
+    <h2>About Me</h2>
+    <p>I capture weddings, portraits, and lifestyle moments with a creative touch.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact fade-in">
+    <p>Ready to capture your moment?</p>
+    <h2>Book Me</h2>
+    <a href="https://wa.me/2349010790789" class="btn button">Message on WhatsApp</a>
+  </section>
+
+  <div class="float_div">
+        <a href="tel:+2349010790789"><i class="fas fa-phone float_icon phone-icon"></i></a>
+
+        <a href="mailto:olaniyangbemileke25@gmail.com"><i class="fas fa-envelope float_icon mail-icon"></i></a>
+  </div>
+
+  
+  <script>
+        const items = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+    items.forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+
+// get ALL images with class "thumb"
+const images = document.querySelectorAll(".thumb");
+
+// loop through each image
+images.forEach(img => {
+  img.onclick = function () {
+    modal.style.display = "flex";
+    modalImg.src = this.src;
+  };
+});
+
+// close when clicking outside image
+modal.onclick = function (e) {
+  if (e.target !== modalImg) {
+    modal.style.display = "none";
+  }
+};
+
+const btn = document.getElementById("seeMoreBtn");
+const moreImages = document.getElementById("moreImages");
+
+let isOpen = false;
+
+btn.onclick = function () {
+  if (!isOpen) {
+    moreImages.style.display = "contents";
+    btn.textContent = "See less";
+    isOpen = true;
+  } else {
+    moreImages.style.display = "none";
+    btn.textContent = "See more";
+    isOpen = false;
+  }
+};
+  </script>
+</body>
+</html>
