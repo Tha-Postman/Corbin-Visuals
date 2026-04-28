@@ -48,8 +48,8 @@ nav a {
   justify-content: center;
   align-items: center;
   animation: gradientMove 20s ease-in infinite;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  /* border-bottom-left-radius: 20px; */
+  /* border-bottom-right-radius: 20px; */
 }
  @keyframes gradientMove {
   0% { background-position: 0% 50%; }
